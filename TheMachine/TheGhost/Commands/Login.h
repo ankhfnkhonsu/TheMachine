@@ -2,5 +2,5 @@
 
 class Login : Command
 {
-	void Execute(string[] args);
+	void Execute(string[] args) override;
 }
