@@ -1,26 +1,30 @@
-#include "Commands/ICommand"
-
-struct CommandNameMap
-{
-public:
-	string Name;
-	ICommand Command;
-}
+#include "Commands/ICommand.h"
 
 static class Commander
 {
 public:
-	Command GetInstance()
+	static Command GetInstance()
 	{
 		static Commander _instance = new Commander();
 		return _instance;
 	}
 
-	void HandleRequest(const char[] requestMessage);
+	void HandleRequest( requestMessage);
 	
 private:
+	struct CommandNameMap
+	{
+	public:
+		string Name;
+		ICommand Command;
+	}
+
 	Commander();
-	std::vector<ICommand> knownCommands;
+	std::vector<CommandNameMap> knownCommands;
 
 	void InitializeCommands();
+
+	// TODO:  Implement a IsOffCooldown() that checks these times.
+	float lastCommandExecutionTime = 0f;      // [systemTime]
+	float commandExecutionCooldownTime = 10f; // [minutes]
 }
