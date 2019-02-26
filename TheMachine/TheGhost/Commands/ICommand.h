@@ -1,6 +1,11 @@
 #pragma once
+#include <queue>
+#include <string>
 
 class Command
 {
-	void Execute(string args) = 0;
+	virtual void Execute(std::queue<std::string>* args) = 0;
+
+private:
+	std::queue<std::string>* myArgs = nullptr;
 }

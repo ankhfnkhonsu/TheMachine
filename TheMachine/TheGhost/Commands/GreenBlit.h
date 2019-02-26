@@ -7,7 +7,7 @@
 class GreenBlit : ICommand
 {
 public:
-	void Execute(string[] args) override;
+	void Execute(std::queue<std::string>* args) override;
 
 private:
 	float lastTimeBlit = 0f;

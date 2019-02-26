@@ -1,16 +1,19 @@
-#include "Commands/ICommand"
+#include "Commands/ICommand.h"
+#include <vector>
+#include <string>
+#include <queue>
 
 struct CommandNameMap
 {
 public:
-	string Name;
-	ICommand Command;
+	std::string Name;
+	ICommand* Command;
 }
 
 static class Commander
 {
 public:
-	Command GetInstance()
+	static Commander GetInstance()
 	{
 		static Commander _instance = new Commander();
 		return _instance;
@@ -20,7 +23,7 @@ public:
 	
 private:
 	Commander();
-	std::vector<ICommand> knownCommands;
+	std::vector<CommandNameMap*> knownCommands;
 
 	void InitializeCommands();
 }

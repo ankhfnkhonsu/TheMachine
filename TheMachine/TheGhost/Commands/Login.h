@@ -1,6 +1,6 @@
-#include "Command.h"
+#include "ICommand.h"
 
-class Login : Command
+class Login : ICommand
 {
-	void Execute(string[] args);
+	void Execute(std::queue<std::string>* args) override;
 }

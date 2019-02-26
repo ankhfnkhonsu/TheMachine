@@ -1,6 +1,7 @@
 #include "GreenBlit.h"
 
-void GreenBlit::Execute(string[] args)
+void GreenBlit::Execute(std::queue<std::string>* args)
 {
+	myArgs = args;
 	// Do the GreenBlit exercise!
 }
