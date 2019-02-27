@@ -2,7 +2,7 @@
 #include <queue>
 #include <string>
 
-class Command
+class ICommand
 {
 	virtual void Execute(std::queue<std::string>* args) = 0;
 
