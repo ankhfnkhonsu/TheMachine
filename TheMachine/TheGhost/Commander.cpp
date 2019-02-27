@@ -1,6 +1,6 @@
 #include "Commander.h"
 
-void Commander::HandleRequest(const char[] requestMessage)
+void Commander::HandleRequest(char ** requestMessage)
 {
 	// Loop through message, breaking words at blank spaces and putting them in a
 	//  vector of strings.

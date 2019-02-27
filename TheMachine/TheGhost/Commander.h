@@ -21,7 +21,7 @@ public:
 		return _instance;
 	}
 
-	void HandleRequest(const char[] requestMessage);
+	void HandleRequest(char ** requestMessage);
 	~Commander();
 private:
 	Commander();

@@ -1,7 +1,7 @@
 #include "ghost.h"
 #include "Commander.h"
 // DO NOT ADD ANYTHING ABOVE THIS FUNCTION DEFINITION
-extern "C" GHOST_API void ProcessCommand(const char[] command)
+extern "C" GHOST_API void ProcessCommand(char ** msg)
 {
 	Commander::GetInstance().HandleRequest(command);
 
