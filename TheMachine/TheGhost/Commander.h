@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Commands/ICommand.h"
 #include <vector>
 #include <string>
@@ -20,7 +22,7 @@ public:
 	}
 
 	void HandleRequest(const char[] requestMessage);
-	
+	~Commander();
 private:
 	Commander();
 	std::vector<CommandNameMap*> knownCommands;

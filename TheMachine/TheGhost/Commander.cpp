@@ -29,9 +29,9 @@ void Commander::HandleRequest(const char[] requestMessage)
 
 	for(int i = 0; i < knownCommands.size(); i++)
 	{
-		if(knownCommands[i] == commandArgs[0])
+		if(knownCommands[i]->Name == commandArgs[0]) // I hate string compare, but.. good for now
 		{
-			commandToExecute = knownCommands[i];
+			commandToExecute = knownCommands[i]->Command;
 			break;
 		}
 	}
@@ -44,4 +44,15 @@ void Commander::InitializeCommands()
 	// Add all recognized commands to this list for lookup
 	knownCommands.emplace_back(new CommandNameMap("AUTH", new Login());
 	knownCommands.emplace_back(new CommandNameMap("GRNBLT", new GreenBlit()));
+}
+
+Commander::~Commander()
+{
+	for (const auto& commandPair : knownCommands)
+	{
+		delete commandPair->Command;
+	}
+
+	// Vector handles its own memory clean up when it goes out of scope, right?
+	//  else, free vector memory manually?  seems wrong, been in C# too long.
 }

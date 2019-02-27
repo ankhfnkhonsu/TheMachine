@@ -1,6 +1,6 @@
 #include "Login.h"
 
-Login::Execute(string[] args)
+void Login::Execute(std::queue<std::string>* args)
 {
 	// Command string should look something like "Login <password>"
 	// So, whether we strip the first word as we pass the command string

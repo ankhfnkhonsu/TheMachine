@@ -1,6 +1,8 @@
+#pragma once
+
 #include "ICommand.h"
 
-class Login : ICommand
+class Login : public ICommand
 {
 	void Execute(std::queue<std::string>* args) override;
 }
